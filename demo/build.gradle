@@ -46,8 +46,8 @@ android {
 }
 
 dependencies {
-    implementation project(':e2e')
-    implementation project(':e2e-ktx')
+    implementation project(':encrypt')
+    implementation project(':encrypt-ktx')
 
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'

@@ -25,11 +25,12 @@ import javax.crypto.spec.SecretKeySpec
  * @author NKDuy
  */
 object KeyE2E {
-    var enc: Cipher? = null
 
-    var dec: Cipher? = null
+    var enc: Cipher? = Cipher.getInstance("AES")
 
-    var secretKey: SecretKeySpec? = null
+    var dec: Cipher? = Cipher.getInstance("AES")
 
-    var encryptionKey = byteArrayOf(9, 115, 51, 86, 105, 4, -31, -23, -68, 88, 17, 20, 3, -105, 119, -53)
+    private val encryptionKey = byteArrayOf(9, 115, 51, 86, 105, 4, -31, -23, -68, 88, 17, 20, 3, -105, 119, -53)
+
+    var secretKey = SecretKeySpec(encryptionKey, "AES")
 }

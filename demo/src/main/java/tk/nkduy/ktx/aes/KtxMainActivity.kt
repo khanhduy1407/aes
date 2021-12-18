@@ -35,11 +35,11 @@ class KtxMainActivity : AppCompatActivity() {
 
     private var editText: EditText? = null
     private var button: Button? = null
-    private  var buttonJava: Button? = null
+    private var buttonJava: Button? = null
     private var encrypt: TextView? = null
-    private  var decrypt:TextView? = null
+    private var decrypt:TextView? = null
     private var stringEnc: String? = null
-    private  var stringDec: String? = null
+    private var stringDec: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,21 +51,9 @@ class KtxMainActivity : AppCompatActivity() {
         encrypt = findViewById(R.id.encrypt)
         decrypt = findViewById(R.id.decrypt)
 
-        try {
-            KeyE2E.enc = Cipher.getInstance("AES")
-            KeyE2E.dec = Cipher.getInstance("AES")
-        } catch (e: NoSuchAlgorithmException) {
-            e.printStackTrace()
-        } catch (e: NoSuchPaddingException) {
-            e.printStackTrace()
-        }
-
-        KeyE2E.secretKey = SecretKeySpec(KeyE2E.encryptionKey, "AES")
-
         button!!.setOnClickListener(View.OnClickListener {
             stringEnc = EndToEnd.EncryptMethod(editText!!.text.toString())
             encrypt!!.text = "Encrypt: $stringEnc"
-
 
 
             try {

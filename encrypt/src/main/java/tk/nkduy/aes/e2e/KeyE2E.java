@@ -17,7 +17,9 @@
 package tk.nkduy.aes.e2e;
 
 import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Key End-to-End Encryption (E2E)
@@ -26,12 +28,22 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class KeyE2E {
 
-    public static Cipher enc;
+    protected static Cipher enc;
 
-    public static Cipher dec;
+    protected static Cipher dec;
 
-    public static SecretKeySpec secretKey;
+    static {
+        try {
+            enc = Cipher.getInstance("AES");
+            dec = Cipher.getInstance("AES");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public static byte encryptionKey[] = { 9, 115, 51, 86, 105, 4, -31, -23, -68, 88, 17, 20, 3, -105, 119, -53 };
+    protected static final byte[] encryptionKey = { 9, 115, 51, 86, 105, 4, -31, -23, -68, 88, 17, 20, 3, -105, 119, -53 };
 
+    public static SecretKeySpec secretKey = new SecretKeySpec(encryptionKey, "AES");
 }

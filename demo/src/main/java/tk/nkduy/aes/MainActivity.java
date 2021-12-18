@@ -52,15 +52,6 @@ public class MainActivity extends AppCompatActivity {
         encrypt = findViewById(R.id.encrypt);
         decrypt = findViewById(R.id.decrypt);
 
-        try {
-            KeyE2E.enc = Cipher.getInstance("AES");
-            KeyE2E.dec = Cipher.getInstance("AES");
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            e.printStackTrace();
-        }
-
-        KeyE2E.secretKey = new SecretKeySpec(KeyE2E.encryptionKey, "AES");
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

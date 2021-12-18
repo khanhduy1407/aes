@@ -15,7 +15,7 @@
  */
 
 include ':demo'
-include ':e2e'
-include ':e2e-ktx'
+include ':encrypt'
+include ':encrypt-ktx'
 
 rootProject.name = "aes"
