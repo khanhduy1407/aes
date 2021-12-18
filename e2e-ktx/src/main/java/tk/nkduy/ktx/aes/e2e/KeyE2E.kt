@@ -14,8 +14,22 @@
  * limitations under the License.
  */
 
-include ':demo'
-include ':e2e'
-include ':e2e-ktx'
+package tk.nkduy.ktx.aes.e2e
 
-rootProject.name = "aes"
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
+
+/**
+ * Key End-to-End Encryption (E2E)
+ *
+ * @author NKDuy
+ */
+object KeyE2E {
+    var enc: Cipher? = null
+
+    var dec: Cipher? = null
+
+    var secretKey: SecretKeySpec? = null
+
+    var encryptionKey = byteArrayOf(9, 115, 51, 86, 105, 4, -31, -23, -68, 88, 17, 20, 3, -105, 119, -53)
+}

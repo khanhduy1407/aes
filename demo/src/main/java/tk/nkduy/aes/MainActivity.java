@@ -16,6 +16,7 @@
 
 package tk.nkduy.aes;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import tk.nkduy.aes.e2e.KeyE2E;
 import tk.nkduy.aes.e2e.EndToEnd;
+import tk.nkduy.ktx.aes.KtxMainActivity;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
@@ -34,7 +36,7 @@ import java.security.NoSuchAlgorithmException;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editText;
-    private Button button;
+    private Button button, buttonKotlin;
     private TextView encrypt, decrypt;
 
     private String stringEnc, stringDec;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.editText);
         button = findViewById(R.id.button);
+        buttonKotlin = findViewById(R.id.buttonKotlin);
         encrypt = findViewById(R.id.encrypt);
         decrypt = findViewById(R.id.decrypt);
 
@@ -71,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        buttonKotlin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, KtxMainActivity.class));
             }
         });
     }

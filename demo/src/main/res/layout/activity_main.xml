@@ -47,6 +47,7 @@
 
     <TextView
         android:id="@+id/encrypt"
+        android:text="Encrypt:"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/button"
@@ -58,6 +59,7 @@
 
     <TextView
         android:id="@+id/decrypt"
+        android:text="Decrypt:"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/encrypt"
@@ -66,5 +68,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"/>
+
+    <Button
+        android:id="@+id/buttonKotlin"
+        android:text="Kotlin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="100dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
